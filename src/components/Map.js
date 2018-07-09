@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import ScriptLoader from 'react-async-script-loader'
+import { locations } from './Data'
 
 class Map extends Component {
   state = {
-    map: {}
+    map: {},
+    markers: []
   }
 
   // Check if the map loads successfully
@@ -21,6 +23,24 @@ class Map extends Component {
         this.props.onError();
       }
     }
+  }
+
+  displayMarkers = (locations) => {
+    let marker;
+    locations.map(location => {
+      marker = new window.google.maps.Marker({
+        map: this.state.map,
+        position: location.coords,
+        title: location.name,
+        animation: window.google.maps.Animation.DROP
+      })
+      console.log('[display mark]', location.name);
+      this.state.markers.push(marker);
+    })
+  }
+
+  componentDidUpdate() {
+    this.displayMarkers(locations);
   }
 
   render() {
