@@ -28,7 +28,7 @@ class Map extends Component {
       });
       
       let infoWindow = new window.google.maps.InfoWindow({
-        content: location.name
+        //content: location.name
       });
       
       marker.addListener('click', _ => {
