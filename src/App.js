@@ -177,8 +177,8 @@ export default class App extends Component {
   
   render() {
     return (
-      <div className="App">
-      <span id="toggle-nav" onClick={this.toggleNav}>&#9776;</span>
+      <div className="App" role="main">
+      <span id="toggle-nav" onClick={this.toggleNav} aria-label="toggle navigation">&#9776;</span>
         <Sidenav
           isOpen = {this.props.isOpen}
           markers= {this.state.markers}
