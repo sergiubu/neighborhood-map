@@ -117,13 +117,13 @@ export default class App extends Component {
               })
               .catch(function (err) {
                 console.log('[Foursquare error]', err);
-                alert('Sorry Foursquare API limit has been exceeded for the day');
+                alert('Sorry, Foursquare API limit has been exceeded for the day.');
               });
           })
       })
       .catch(function (err){
         console.log('[Foursquare error]', err);
-        alert('Sorry Foursquare API limit has been exceeded for the day');
+        alert('Sorry, Foursquare API limit has been exceeded for the day.');
       });
 
     this.state.infowindow.open(this.state.map, marker);
@@ -145,8 +145,6 @@ export default class App extends Component {
       this.state.searchedMarkers.forEach((marker) => {
         if (marker.title.toLowerCase().indexOf(event.target.value.toLowerCase()) >= 0) {
           marker.setVisible(true);
-          //console.log('[smark]', marker);
-          
           searchedLocations.push(marker);
         } else {
           marker.setVisible(false);
